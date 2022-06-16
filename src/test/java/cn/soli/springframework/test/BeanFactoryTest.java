@@ -1,7 +1,8 @@
 package cn.soli.springframework.test;
 
-import cn.soli.springframework.BeanDefinition;
-import cn.soli.springframework.BeanFactory;
+import cn.soli.springframework.factory.config.BeanDefinition;
+import cn.soli.springframework.factory.BeanFactory;
+import cn.soli.springframework.factory.support.DefaultListableBeanFactory;
 import cn.soli.springframework.test.bean.TestService;
 import org.junit.Test;
 
@@ -11,13 +12,18 @@ public class BeanFactoryTest {
     public void test_BeanFactory() {
 
         // init beanFactory
-        BeanFactory beanFactory = new BeanFactory();
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 
         // register bean
-        beanFactory.registerBeanDefinition("testService", new BeanDefinition(new TestService()));
+        BeanDefinition beanDefinition = new BeanDefinition(TestService.class);
+        beanFactory.registerBeanDefinition("testService", beanDefinition);
 
-        // get bean
+        // get bean firstly
         TestService testService = (TestService) beanFactory.getBean("testService");
         testService.test();
+
+        // get bean secondly
+        TestService testService2 = (TestService) beanFactory.getBean("testService");
+        testService2.test();
     }
 }
