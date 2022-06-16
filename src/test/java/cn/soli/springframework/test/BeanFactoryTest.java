@@ -19,11 +19,11 @@ public class BeanFactoryTest {
         beanFactory.registerBeanDefinition("testService", beanDefinition);
 
         // get bean firstly
-        TestService testService = (TestService) beanFactory.getBean("testService");
+        TestService testService = (TestService) beanFactory.getBean("testService", "user1");
         testService.test();
 
         // get bean secondly
-        TestService testService2 = (TestService) beanFactory.getBean("testService");
+        TestService testService2 = (TestService) beanFactory.getBean("testService", "user2");
         testService2.test();
     }
 }
