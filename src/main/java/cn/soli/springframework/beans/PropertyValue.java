@@ -1,4 +1,4 @@
-package cn.soli.springframework.beans.factory;
+package cn.soli.springframework.beans;
 
 public class PropertyValue {
 

@@ -1,6 +1,6 @@
 package cn.soli.springframework.beans.factory;
 
-import cn.soli.springframework.BeansException;
+import cn.soli.springframework.beans.BeansException;
 
 public interface BeanFactory {
 

@@ -1,4 +1,4 @@
-package cn.soli.springframework;
+package cn.soli.springframework.beans;
 
 public class BeansException extends RuntimeException {
 

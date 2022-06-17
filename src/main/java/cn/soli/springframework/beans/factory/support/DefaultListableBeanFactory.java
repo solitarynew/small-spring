@@ -1,6 +1,6 @@
 package cn.soli.springframework.beans.factory.support;
 
-import cn.soli.springframework.BeansException;
+import cn.soli.springframework.beans.BeansException;
 import cn.soli.springframework.beans.factory.config.BeanDefinition;
 
 import java.util.HashMap;

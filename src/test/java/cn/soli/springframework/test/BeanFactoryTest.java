@@ -1,7 +1,7 @@
 package cn.soli.springframework.test;
 
-import cn.soli.springframework.beans.factory.PropertyValue;
-import cn.soli.springframework.beans.factory.PropertyValues;
+import cn.soli.springframework.beans.PropertyValue;
+import cn.soli.springframework.beans.PropertyValues;
 import cn.soli.springframework.beans.factory.config.BeanDefinition;
 import cn.soli.springframework.beans.factory.config.BeanReference;
 import cn.soli.springframework.beans.factory.support.DefaultListableBeanFactory;

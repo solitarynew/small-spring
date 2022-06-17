@@ -1,4 +1,4 @@
-package cn.soli.springframework.beans.factory;
+package cn.soli.springframework.beans;
 
 import java.util.ArrayList;
 import java.util.List;

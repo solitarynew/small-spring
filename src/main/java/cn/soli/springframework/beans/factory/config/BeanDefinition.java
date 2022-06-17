@@ -1,6 +1,6 @@
 package cn.soli.springframework.beans.factory.config;
 
-import cn.soli.springframework.beans.factory.PropertyValues;
+import cn.soli.springframework.beans.PropertyValues;
 
 public class BeanDefinition {
 
