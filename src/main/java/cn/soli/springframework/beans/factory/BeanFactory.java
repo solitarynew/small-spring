@@ -1,4 +1,4 @@
-package cn.soli.springframework.factory;
+package cn.soli.springframework.beans.factory;
 
 import cn.soli.springframework.BeansException;
 

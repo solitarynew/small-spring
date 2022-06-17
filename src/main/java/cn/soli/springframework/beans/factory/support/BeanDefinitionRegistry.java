@@ -1,6 +1,6 @@
-package cn.soli.springframework.factory.support;
+package cn.soli.springframework.beans.factory.support;
 
-import cn.soli.springframework.factory.config.BeanDefinition;
+import cn.soli.springframework.beans.factory.config.BeanDefinition;
 
 public interface BeanDefinitionRegistry {
 

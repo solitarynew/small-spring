@@ -1,7 +1,11 @@
-package cn.soli.springframework.factory.support;
+package cn.soli.springframework.beans.factory.support;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.soli.springframework.BeansException;
-import cn.soli.springframework.factory.config.BeanDefinition;
+import cn.soli.springframework.beans.factory.PropertyValue;
+import cn.soli.springframework.beans.factory.PropertyValues;
+import cn.soli.springframework.beans.factory.config.BeanDefinition;
+import cn.soli.springframework.beans.factory.config.BeanReference;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -15,6 +19,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         Object bean;
         try {
             bean = createBeanInstance(beanName,beanDefinition, args);
+            applyPropertyValues(beanName, bean, beanDefinition);
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean failed", e);
         }
@@ -23,7 +28,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         return bean;
     }
 
-    protected Object createBeanInstance(String beanName, BeanDefinition beanDefinition, Object[] objects) throws BeansException {
+    protected Object createBeanInstance(String beanName, BeanDefinition beanDefinition, Object[] objects) {
         Constructor<?> constructorToUse = null;
         Class<?> clazz = beanDefinition.getBeanClass();
         Constructor<?>[] constructors = clazz.getDeclaredConstructors();
@@ -44,6 +49,26 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             }
         }
         return instantiationStrategy.instantiate(beanDefinition, beanName, constructorToUse, objects);
+    }
+
+    protected void applyPropertyValues(String beanName, Object bean, BeanDefinition beanDefinition) {
+        try {
+            PropertyValues propertyValues = beanDefinition.getPropertyValues();
+            for (PropertyValue propertyValue : propertyValues.getPropertyValues()) {
+                String name = propertyValue.getName();
+                Object value = propertyValue.getValue();
+
+                if (value instanceof BeanReference) {
+                    BeanReference beanReference= (BeanReference) value;
+                    value = getBean(beanReference.getBeanName());
+                }
+
+                BeanUtil.setFieldValue(bean, name, value);
+            }
+        } catch (Exception e) {
+            throw new BeansException("Error setting property values：" + beanName);
+        }
+
     }
 
     public InstantiationStrategy getInstantiationStrategy() {

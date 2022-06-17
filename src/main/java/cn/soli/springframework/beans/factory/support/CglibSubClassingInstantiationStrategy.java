@@ -1,7 +1,7 @@
-package cn.soli.springframework.factory.support;
+package cn.soli.springframework.beans.factory.support;
 
 import cn.soli.springframework.BeansException;
-import cn.soli.springframework.factory.config.BeanDefinition;
+import cn.soli.springframework.beans.factory.config.BeanDefinition;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.NoOp;
 

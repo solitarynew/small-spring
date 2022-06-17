@@ -1,8 +1,8 @@
-package cn.soli.springframework.factory.support;
+package cn.soli.springframework.beans.factory.support;
 
 import cn.soli.springframework.BeansException;
-import cn.soli.springframework.factory.BeanFactory;
-import cn.soli.springframework.factory.config.BeanDefinition;
+import cn.soli.springframework.beans.factory.BeanFactory;
+import cn.soli.springframework.beans.factory.config.BeanDefinition;
 
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
 

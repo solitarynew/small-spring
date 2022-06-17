@@ -1,11 +1,11 @@
-package cn.soli.springframework.factory.support;
+package cn.soli.springframework.beans.factory.support;
 
-import cn.soli.springframework.factory.config.SingletonBeanRegistry;
+import cn.soli.springframework.beans.factory.config.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry{
+public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
 
     private final Map<String, Object> singletonObjects = new HashMap<>();
 
