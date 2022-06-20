@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+    <bean id="testDao" name="testDao" class="cn.soli.springframework.test.bean.TestDao" />
+    <bean id="testService" name="testService" class="cn.soli.springframework.test.bean.TestService">
+        <property name="testDao" ref="testDao" />
+        <property name="name" value="testService" />
+    </bean>>
+</beans>
